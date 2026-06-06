@@ -1,7 +1,9 @@
-------------------------------------------------------------------------------------------------------------------
-TASK - 3
+# Task 3
 
-Table setup:
+
+## Table Setup
+
+```sql
 CREATE TABLE employee (
    emp_id INT,
    emp_name VARCHAR(50),
@@ -20,7 +22,6 @@ INSERT INTO employee VALUES
 (106,'Ramesh','IT',80000,'Hyderabad','ramesh@gmail.com'),
 (107,'Divya','Finance',55000,'Bangalore','divya@gmail.com'),
 (108,'Kiran','HR',45000,'Hyderabad',NULL);
-------------------------------------------------------------------------------------------------------------------
 
 mysql> CREATE TABLE employee (
     ->    emp_id INT,
@@ -45,7 +46,13 @@ mysql> INSERT INTO employee VALUES
 Query OK, 8 rows affected (0.01 sec)
 Records: 8  Duplicates: 0  Warnings: 0
 
-Question 1: Display employee name and salary increased by Rs. 5,000.
+```
+
+## Question 1
+
+Display employee name and salary increased by Rs. 5,000.
+
+```sql
 mysql> SELECT emp_name, salary + 5000 AS increased_salary
     -> FROM employee;
 +----------+------------------+
@@ -62,7 +69,13 @@ mysql> SELECT emp_name, salary + 5000 AS increased_salary
 +----------+------------------+
 8 rows in set (0.01 sec)
 
-Question 2: Calculate annual salary for all employees.
+```
+
+## Question 2
+
+Calculate annual salary for all employees.
+
+```sql
 mysql> SELECT emp_name, salary * 12 AS annual_salary
     -> FROM employee;
 +----------+---------------+
@@ -79,7 +92,13 @@ mysql> SELECT emp_name, salary * 12 AS annual_salary
 +----------+---------------+
 8 rows in set (0.00 sec)
 
-Question 3: Display salary after deducting Rs. 2,000.
+```
+
+## Question 3
+
+Display salary after deducting Rs. 2,000.
+
+```sql
 mysql> SELECT emp_name, salary - 2000 AS deducted_salary
     -> FROM employee;
 +----------+-----------------+
@@ -96,7 +115,13 @@ mysql> SELECT emp_name, salary - 2000 AS deducted_salary
 +----------+-----------------+
 8 rows in set (0.01 sec)
 
-Question 4: Find employees from the IT department and Hyderabad city.
+```
+
+## Question 4
+
+Find employees from the IT department and Hyderabad city.
+
+```sql
 mysql> SELECT * FROM employee
     -> WHERE department = 'IT' AND city = 'Hyderabad';
 +--------+----------+------------+--------+-----------+------------------+
@@ -107,7 +132,13 @@ mysql> SELECT * FROM employee
 +--------+----------+------------+--------+-----------+------------------+
 2 rows in set (0.01 sec)
 
-Question 5: Find employees from IT or Finance departments.
+```
+
+## Question 5
+
+Find employees from IT or Finance departments.
+
+```sql
 mysql> SELECT * FROM employee
     -> WHERE department = 'IT' OR department = 'Finance';
 +--------+----------+------------+--------+-----------+------------------+
@@ -121,7 +152,13 @@ mysql> SELECT * FROM employee
 +--------+----------+------------+--------+-----------+------------------+
 5 rows in set (0.00 sec)
 
-Question 6: Find employees not belonging to the HR department.
+```
+
+## Question 6
+
+Find employees not belonging to the HR department.
+
+```sql
 mysql> SELECT * FROM employee
     -> WHERE department != 'HR';
 +--------+----------+------------+--------+-----------+------------------+
@@ -135,7 +172,13 @@ mysql> SELECT * FROM employee
 +--------+----------+------------+--------+-----------+------------------+
 5 rows in set (0.00 sec)
 
-Question 7: Find employees whose salary is between Rs. 40,000 and Rs. 60,000.
+```
+
+## Question 7
+
+Find employees whose salary is between Rs. 40,000 and Rs. 60,000.
+
+```sql
 mysql> SELECT * FROM employee
     -> WHERE salary BETWEEN 40000 AND 60000;
 +--------+----------+------------+--------+-----------+-----------------+
@@ -149,7 +192,13 @@ mysql> SELECT * FROM employee
 +--------+----------+------------+--------+-----------+-----------------+
 5 rows in set (0.00 sec)
 
-Question 8: Find employees whose email is NULL.
+```
+
+## Question 8
+
+Find employees whose email is NULL.
+
+```sql
 mysql> SELECT * FROM employee
     -> WHERE email IS NULL;
 +--------+----------+------------+--------+-----------+-------+
@@ -161,7 +210,13 @@ mysql> SELECT * FROM employee
 +--------+----------+------------+--------+-----------+-------+
 3 rows in set (0.00 sec)
 
-Question 9: Find employees whose email is NOT NULL.
+```
+
+## Question 9
+
+Find employees whose email is NOT NULL.
+
+```sql
 mysql> SELECT * FROM employee
     -> WHERE email IS NOT NULL;
 +--------+----------+------------+--------+-----------+------------------+
@@ -175,7 +230,13 @@ mysql> SELECT * FROM employee
 +--------+----------+------------+--------+-----------+------------------+
 5 rows in set (0.00 sec)
 
-Question 10: Find employees whose names do NOT start with the letter 'R'.
+```
+
+## Question 10
+
+Find employees whose names do NOT start with the letter 'R'.
+
+```sql
 mysql> SELECT * FROM employee
     -> WHERE emp_name NOT LIKE 'R%';
 +--------+----------+------------+--------+-----------+-----------------+
@@ -190,7 +251,11 @@ mysql> SELECT * FROM employee
 +--------+----------+------------+--------+-----------+-----------------+
 6 rows in set (0.01 sec)
 
-Final table view:
+```
+
+## Final Table View
+
+```sql
 mysql> SELECT * FROM employee;
 +--------+----------+------------+--------+-----------+------------------+
 | emp_id | emp_name | department | salary | city      | email            |
@@ -205,3 +270,4 @@ mysql> SELECT * FROM employee;
 |    108 | Kiran    | HR         |  45000 | Hyderabad | NULL             |
 +--------+----------+------------+--------+-----------+------------------+
 8 rows in set (0.00 sec)
+```

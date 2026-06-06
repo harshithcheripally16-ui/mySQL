@@ -2,13 +2,15 @@
 
 This repository contains MySQL task files only. Each task file includes the question, the command used, and the MySQL output together so the concept can be understood directly from the file.
 
+The task files use Markdown so MySQL commands can be shown inside `sql` code blocks with syntax highlighting on GitHub.
+
 ## Task Files
 
 | File | Concepts Covered |
 | --- | --- |
-| `Task-1.txt` | Table creation, inserting records, updating records, deleting records, filtering with `WHERE`, aliases, and sorting with `ORDER BY`. |
-| `Task-2.txt` | `DISTINCT`, `COUNT(DISTINCT)`, `IFNULL`, `OR`, and `NOT` using a `Products` table. |
-| `Task-3.txt` | Arithmetic operators, logical operators, `BETWEEN`, `IS NULL`, `IS NOT NULL`, and `NOT LIKE` using an `employee` table. |
+| `Task-1.md` | Table creation, inserting records, updating records, deleting records, filtering with `WHERE`, aliases, and sorting with `ORDER BY`. |
+| `Task-2.md` | `DISTINCT`, `COUNT(DISTINCT)`, `IFNULL`, `OR`, and `NOT` using a `Products` table. |
+| `Task-3.md` | Arithmetic operators, logical operators, `BETWEEN`, `IS NULL`, `IS NOT NULL`, and `NOT LIKE` using an `employee` table. |
 
 ## File Format
 
@@ -24,5 +26,5 @@ This format keeps every question connected with the exact command used to solve 
 
 ## Notes
 
-- The `.txt` files are the main course material.
-- Future tasks can be added as `Task-4.txt`, `Task-5.txt`, and so on.
+- The `.md` files are the main course material.
+- Future tasks can be added as `Task-4.md`, `Task-5.md`, and so on.

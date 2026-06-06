@@ -1,7 +1,9 @@
-------------------------------------------------------------------------------------------------------------------
-TASK - 2
+# Task 2
 
-Table setup:
+
+## Table Setup
+
+```sql
 CREATE TABLE Products (
    product_id INT PRIMARY KEY,
    product_name VARCHAR(50),
@@ -24,7 +26,6 @@ INSERT INTO Products VALUES
 (108, 'Fan', 'Appliances', 'Bajaj', 2500, 25, NULL, 'Cooling Solutions'),
 (109, 'AC', 'Appliances', 'LG', 35000, 5, 12.00, 'Cooling Solutions'),
 (110, 'Refrigerator', 'Appliances', 'Samsung', 28000, 7, NULL, 'XYZ Traders');
-------------------------------------------------------------------------------------------------------------------
 
 mysql> CREATE TABLE Products (
     ->    product_id INT PRIMARY KEY,
@@ -53,7 +54,13 @@ mysql> INSERT INTO Products VALUES
 Query OK, 10 rows affected (0.01 sec)
 Records: 10  Duplicates: 0  Warnings: 0
 
-Question 1: Display all unique categories from the Products table.
+```
+
+## Question 1
+
+Display all unique categories from the Products table.
+
+```sql
 mysql> SELECT DISTINCT category
     -> FROM Products;
 +-------------+
@@ -65,7 +72,13 @@ mysql> SELECT DISTINCT category
 +-------------+
 3 rows in set (0.01 sec)
 
-Question 2: Display all unique brands.
+```
+
+## Question 2
+
+Display all unique brands.
+
+```sql
 mysql> SELECT DISTINCT brand
     -> FROM Products;
 +----------+
@@ -82,7 +95,13 @@ mysql> SELECT DISTINCT brand
 +----------+
 8 rows in set (0.00 sec)
 
-Question 3: Display all unique suppliers.
+```
+
+## Question 3
+
+Display all unique suppliers.
+
+```sql
 mysql> SELECT DISTINCT supplier
     -> FROM Products;
 +-------------------+
@@ -96,7 +115,13 @@ mysql> SELECT DISTINCT supplier
 +-------------------+
 5 rows in set (0.00 sec)
 
-Question 4: Display unique combinations of category and brand.
+```
+
+## Question 4
+
+Display unique combinations of category and brand.
+
+```sql
 mysql> SELECT DISTINCT category, brand
     -> FROM Products;
 +-------------+----------+
@@ -114,7 +139,13 @@ mysql> SELECT DISTINCT category, brand
 +-------------+----------+
 9 rows in set (0.00 sec)
 
-Question 5: Count the total number of distinct brands.
+```
+
+## Question 5
+
+Count the total number of distinct brands.
+
+```sql
 mysql> SELECT COUNT(DISTINCT brand) AS Total_Brands
     -> FROM Products;
 +--------------+
@@ -124,7 +155,13 @@ mysql> SELECT COUNT(DISTINCT brand) AS Total_Brands
 +--------------+
 1 row in set (0.01 sec)
 
-Question 6: Display product names and replace NULL discounts with 0.
+```
+
+## Question 6
+
+Display product names and replace NULL discounts with 0.
+
+```sql
 mysql> SELECT product_name,
     -> IFNULL(discount, 0) AS Discount
     -> FROM Products;
@@ -144,7 +181,13 @@ mysql> SELECT product_name,
 +--------------+----------+
 10 rows in set (0.01 sec)
 
-Question 7: Display supplier names and replace NULL values with 'Unknown Supplier'.
+```
+
+## Question 7
+
+Display supplier names and replace NULL values with 'Unknown Supplier'.
+
+```sql
 mysql> SELECT IFNULL(supplier, 'Unknown Supplier') AS Supplier
     -> FROM Products;
 +-------------------+
@@ -163,7 +206,13 @@ mysql> SELECT IFNULL(supplier, 'Unknown Supplier') AS Supplier
 +-------------------+
 10 rows in set (0.00 sec)
 
-Question 8: Calculate the discounted price by replacing NULL discounts with 0.
+```
+
+## Question 8
+
+Calculate the discounted price by replacing NULL discounts with 0.
+
+```sql
 mysql> SELECT product_name,
     ->        price,
     ->        IFNULL(discount,0) AS Discount,
@@ -185,7 +234,13 @@ mysql> SELECT product_name,
 +--------------+----------+----------+------------------+
 10 rows in set (0.00 sec)
 
-Question 9: Display all product details with NULL discount values replaced by 0.
+```
+
+## Question 9
+
+Display all product details with NULL discount values replaced by 0.
+
+```sql
 mysql> SELECT product_id,
     ->        product_name,
     ->        category,
@@ -211,7 +266,13 @@ mysql> SELECT product_id,
 +------------+--------------+-------------+----------+----------+-------+----------+-------------------+
 10 rows in set (0.00 sec)
 
-Question 10: Find products where IFNULL(discount,0) is greater than 5.
+```
+
+## Question 10
+
+Find products where IFNULL(discount,0) is greater than 5.
+
+```sql
 mysql> SELECT *
     -> FROM Products
     -> WHERE IFNULL(discount,0) > 5;
@@ -224,7 +285,13 @@ mysql> SELECT *
 +------------+--------------+-------------+-------+----------+-------+----------+-------------------+
 3 rows in set (0.00 sec)
 
-Question 11: Find products belonging to Electronics or Furniture categories.
+```
+
+## Question 11
+
+Find products belonging to Electronics or Furniture categories.
+
+```sql
 mysql> SELECT *
     -> FROM Products
     -> WHERE category = 'Electronics'
@@ -242,7 +309,13 @@ mysql> SELECT *
 +------------+--------------+-------------+----------+----------+-------+----------+---------------+
 7 rows in set (0.00 sec)
 
-Question 12: Find products manufactured by Samsung or LG.
+```
+
+## Question 12
+
+Find products manufactured by Samsung or LG.
+
+```sql
 mysql> SELECT *
     -> FROM Products
     -> WHERE brand = 'Samsung'
@@ -256,7 +329,13 @@ mysql> SELECT *
 +------------+--------------+-------------+---------+----------+-------+----------+-------------------+
 3 rows in set (0.00 sec)
 
-Question 13: Find products priced above 30,000 or having stock less than 10.
+```
+
+## Question 13
+
+Find products priced above 30,000 or having stock less than 10.
+
+```sql
 mysql> SELECT *
     -> FROM Products
     -> WHERE price > 30000
@@ -271,7 +350,13 @@ mysql> SELECT *
 +------------+--------------+-------------+---------+----------+-------+----------+-------------------+
 4 rows in set (0.00 sec)
 
-Question 14: Find products supplied by Tech World or XYZ Traders.
+```
+
+## Question 14
+
+Find products supplied by Tech World or XYZ Traders.
+
+```sql
 mysql> SELECT *
     -> FROM Products
     -> WHERE supplier = 'Tech World'
@@ -287,7 +372,13 @@ mysql> SELECT *
 +------------+--------------+-------------+----------+----------+-------+----------+-------------+
 5 rows in set (0.00 sec)
 
-Question 15: Find products with discount greater than 10 or stock less than 10.
+```
+
+## Question 15
+
+Find products with discount greater than 10 or stock less than 10.
+
+```sql
 mysql> SELECT *
     -> FROM Products
     -> WHERE discount > 10
@@ -301,7 +392,13 @@ mysql> SELECT *
 +------------+--------------+-------------+---------+----------+-------+----------+-------------------+
 3 rows in set (0.00 sec)
 
-Question 16: Find products that are not Electronics.
+```
+
+## Question 16
+
+Find products that are not Electronics.
+
+```sql
 mysql> SELECT *
     -> FROM Products
     -> WHERE NOT category = 'Electronics';
@@ -316,7 +413,13 @@ mysql> SELECT *
 +------------+--------------+------------+---------+----------+-------+----------+-------------------+
 5 rows in set (0.01 sec)
 
-Question 17: Find products not supplied by XYZ Traders.
+```
+
+## Question 17
+
+Find products not supplied by XYZ Traders.
+
+```sql
 mysql> SELECT *
     -> FROM Products
     -> WHERE NOT supplier = 'XYZ Traders';
@@ -333,7 +436,13 @@ mysql> SELECT *
 +------------+--------------+-------------+----------+----------+-------+----------+-------------------+
 7 rows in set (0.00 sec)
 
-Question 18: Find products not belonging to Samsung brand.
+```
+
+## Question 18
+
+Find products not belonging to Samsung brand.
+
+```sql
 mysql> SELECT *
     -> FROM Products
     -> WHERE NOT brand = 'Samsung';
@@ -351,7 +460,13 @@ mysql> SELECT *
 +------------+--------------+-------------+----------+----------+-------+----------+-------------------+
 8 rows in set (0.00 sec)
 
-Question 19: Find products whose stock is not less than 10.
+```
+
+## Question 19
+
+Find products whose stock is not less than 10.
+
+```sql
 mysql> SELECT *
     -> FROM Products
     -> WHERE NOT stock < 10;
@@ -368,7 +483,13 @@ mysql> SELECT *
 +------------+--------------+-------------+----------+----------+-------+----------+-------------------+
 7 rows in set (0.00 sec)
 
-Question 20: Find products whose price is not greater than 30,000.
+```
+
+## Question 20
+
+Find products whose price is not greater than 30,000.
+
+```sql
 mysql> SELECT *
     -> FROM Products
     -> WHERE NOT price > 30000;
@@ -384,3 +505,4 @@ mysql> SELECT *
 |        110 | Refrigerator | Appliances  | Samsung  | 28000.00 |     7 |     NULL | XYZ Traders       |
 +------------+--------------+-------------+----------+----------+-------+----------+-------------------+
 7 rows in set (0.00 sec)
+```
