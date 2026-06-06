@@ -1,37 +1,7 @@
 ------------------------------------------------------------------------------------------------------------------
 TASK - 1
 
-Questions:
-1. Insert a new employee record into the Employee table.
-2. Insert an employee with emp_id = 111, emp_name = 'Teja', department = 'IT', salary = 55000, city = 'Hyderabad'.
-3. Insert multiple employee records using a single query.
-4. Insert a record by specifying column names explicitly.
-5. Insert an employee record with only emp_id, emp_name, and department.
-6. Update the salary of employee with emp_id = 101.
-7. Update the city of employee 'Ravi' to Bangalore.
-8. Update the department of employee with emp_id = 105 to Finance.
-9. Update the salary of all employees in the IT department.
-10. Update the city to Hyderabad for all HR employees.
-11. Delete the employee whose emp_id = 103.
-12. Delete all employees belonging to the HR department.
-13. Delete employees whose salary is less than 40000.
-14. Delete employees from Hyderabad.
-15. Delete employees working in the Finance department.
-16. Display all employees whose salary is greater than 50000.
-17. Display employees working in the IT department.
-18. Display employees from Hyderabad.
-19. Display employees whose salary is less than 60000.
-20. Display details of employee with emp_id = 105.
-21. Display employees whose department is Finance.
-22. Display employees whose city is Bangalore.
-23. Display employees whose salary is greater than 50000 and city is Hyderabad.
-24. Display employees whose department is IT and salary is greater than 60000.
-25. Display employees whose city is Mumbai and department is Finance.
-26. Display emp_name as Employee_Name.
-27. Display salary as Employee_Salary.
-28. Display department as Dept_Name and city as Employee_City.
-29. Display all employees ordered by salary in descending order.
-30. Display all employees ordered by city ascending and salary descending.
+Table setup:
 ------------------------------------------------------------------------------------------------------------------
 
 mysql> CREATE TABLE Employee (
@@ -58,12 +28,15 @@ mysql> INSERT INTO Employee VALUES
 Query OK, 10 rows affected (0.01 sec)
 Records: 10  Duplicates: 0  Warnings: 0
 
+Question 1: Insert a new employee record into the Employee table.
 mysql> INSERT INTO Employee VALUES(111, 'Harshith', 'IT', 200000, 'Hyderabad');
 Query OK, 1 row affected (0.01 sec)
 
+Question 2: Insert an employee with emp_id = 112, emp_name = 'Teja', department = 'IT', salary = 55000, city = 'Hyderabad'.
 mysql> INSERT INTO Employee VALUES(112, 'Teja', 'IT', 55000, 'Hyderabad');
 Query OK, 1 row affected (0.01 sec)
 
+Question 3: Insert multiple employee records using a single query.
 mysql> INSERT INTO Employee VALUES
     -> (113, 'Ajay', 'HR', '75000', 'Chennai'),
     -> (114, 'Jay', 'IT', '60000', 'Pune'),
@@ -99,12 +72,15 @@ mysql> SELECT * FROM Employee;
 +--------+----------+------------+--------+-----------+
 15 rows in set (0.01 sec)
 
+Question 4: Insert a record by specifying column names explicitly.
 mysql> INSERT INTO Employee(emp_id, emp_name, department, salary, city)  VALUES(116, 'Tarun', 'Finance', 45000, 'Mumbai');
 Query OK, 1 row affected (0.01 sec)
 
+Question 5: Insert an employee record with only emp_id, emp_name, and department.
 mysql> INSERT INTO Employee(emp_id, emp_name, department)  VALUES(117, 'Karan', 'IT');
 Query OK, 1 row affected (0.01 sec)
 
+Question 6: Update the salary of employee with emp_id = 101.
 mysql> UPDATE Employee
     -> SET salary=80000
     -> WHERE id = 101;
@@ -115,46 +91,55 @@ mysql> UPDATE Employee
 Query OK, 1 row affected (0.01 sec)
 Rows matched: 1  Changed: 1  Warnings: 0
 
+Question 7: Update the city of employee 'Ravi' to Bangalore.
 mysql> UPDATE Employee
     -> SET city = 'Bangalore'
     -> WHERE emp_id = 101;
 Query OK, 1 row affected (0.01 sec)
 Rows matched: 1  Changed: 1  Warnings: 0
 
+Question 8: Update the department of employee with emp_id = 105 to Finance.
 mysql> UPDATE Employee
     -> SET department = 'Finance'
     -> WHERE emp_id = 105;
 Query OK, 1 row affected (0.01 sec)
 Rows matched: 1  Changed: 1  Warnings: 0
 
+Question 9: Update the salary of all employees in the IT department.
 mysql> UPDATE Employee
     -> SET salary = salary + 500
     -> WHERE department = 'IT';
 Query OK, 8 rows affected (0.02 sec)
 Rows matched: 9  Changed: 8  Warnings: 0
 
+Question 10: Update the city to Hyderabad for all HR employees.
 mysql> UPDATE Employee
     -> SET city = 'Hyderabad'
     -> WHERE department = 'HR';
 Query OK, 3 rows affected (0.01 sec)
 Rows matched: 3  Changed: 3  Warnings: 0
 
+Question 11: Delete the employee whose emp_id = 103.
 mysql> DELETE FROM Employee
     -> WHERE emp_id = 103;
 Query OK, 1 row affected (0.01 sec)
 
+Question 12: Delete all employees belonging to the HR department.
 mysql> DELETE FROM Employee
     -> WHERE department = 'HR';
 Query OK, 3 rows affected (0.01 sec)
 
+Question 13: Delete employees whose salary is less than 40000.
 mysql> DELETE FROM Employee
     -> WHERE salary < 40000;
 Query OK, 0 rows affected (0.00 sec)
 
+Question 14: Delete employees from Hyderabad.
 mysql> DELETE FROM Employee
     -> WHERE city = 'Hyderabad';
 Query OK, 4 rows affected (0.01 sec)
 
+Question 15: Delete employees working in the Finance department.
 mysql> DELETE FROM Employee
     -> WHERE department = 'Finance';
 Query OK, 4 rows affected (0.01 sec)
@@ -171,6 +156,7 @@ mysql> SELECT * FROM Employee;
 +--------+----------+------------+--------+-----------+
 5 rows in set (0.01 sec)
 
+Question 16: Display all employees whose salary is greater than 50000.
 mysql> SELECT * FROM Employee
     -> WHERE salary > 50000;
 +--------+----------+------------+--------+-----------+
@@ -183,6 +169,7 @@ mysql> SELECT * FROM Employee
 +--------+----------+------------+--------+-----------+
 4 rows in set (0.00 sec)
 
+Question 17: Display employees working in the IT department.
 mysql> SELECT * FROM Employee
     -> WHERE department = 'IT';
 +--------+----------+------------+--------+-----------+
@@ -196,22 +183,27 @@ mysql> SELECT * FROM Employee
 +--------+----------+------------+--------+-----------+
 5 rows in set (0.00 sec)
 
+Question 18: Display employees from Hyderabad.
 mysql> SELECT * FROM Employee
     -> WHERE city = 'Hyderabad';
 Empty set (0.00 sec)
 
+Question 19: Display employees whose salary is less than 60000.
 mysql> SELECT * FROM Employee
     -> WHERE salary < 60000;
 Empty set (0.00 sec)
 
+Question 20: Display details of employee with emp_id = 105.
 mysql> SELECT * FROM Employee
     -> WHERE emp_id = 105;
 Empty set (0.01 sec)
 
+Question 21: Display employees whose department is Finance.
 mysql> SELECT * FROM Employee
     -> WHERE department = 'Finance';
 Empty set (0.00 sec)
 
+Question 22: Display employees whose city is Bangalore.
 mysql> SELECT * FROM Employee
     -> WHERE city = 'Bangalore';
 +--------+----------+------------+--------+-----------+
@@ -222,11 +214,13 @@ mysql> SELECT * FROM Employee
 +--------+----------+------------+--------+-----------+
 2 rows in set (0.00 sec)
 
+Question 23: Display employees whose salary is greater than 50000 and city is Hyderabad.
 mysql> SELECT * FROM Employee
     -> WHERE salary > 50000
     -> AND city = 'Hyderabad';
 Empty set (0.00 sec)
 
+Question 24: Display employees whose department is IT and salary is greater than 60000.
 mysql> SELECT * FROM Employee
     -> WHERE department = 'IT'
     -> AND salary > 60000;
@@ -240,11 +234,13 @@ mysql> SELECT * FROM Employee
 +--------+----------+------------+--------+-----------+
 4 rows in set (0.00 sec)
 
+Question 25: Display employees whose city is Mumbai and department is Finance.
 mysql> SELECT * FROM Employee
     -> WHERE city = 'Mumbai'
     -> AND department = 'Finance';
 Empty set (0.00 sec)
 
+Question 26: Display emp_name as Employee_Name.
 mysql> SELECT emp_name AS Employee_Name
     -> FROM Employee;
 +---------------+
@@ -258,6 +254,7 @@ mysql> SELECT emp_name AS Employee_Name
 +---------------+
 5 rows in set (0.00 sec)
 
+Question 27: Display salary as Employee_Salary.
 mysql> SELECT salary AS Employee_Salary
     -> FROM Employee;
 +-----------------+
@@ -271,6 +268,7 @@ mysql> SELECT salary AS Employee_Salary
 +-----------------+
 5 rows in set (0.00 sec)
 
+Question 28: Display department as Dept_Name and city as Employee_City.
 mysql> SELECT department AS Dept_Name,
     -> city AS Employee_City
     -> FROM Employee;
@@ -285,6 +283,7 @@ mysql> SELECT department AS Dept_Name,
 +-----------+---------------+
 5 rows in set (0.00 sec)
 
+Question 29: Display all employees ordered by salary in descending order.
 mysql> SELECT * FROM Employee
     -> ORDER BY salary DESC;
 +--------+----------+------------+--------+-----------+
@@ -298,6 +297,7 @@ mysql> SELECT * FROM Employee
 +--------+----------+------------+--------+-----------+
 5 rows in set (0.01 sec)
 
+Question 30: Display all employees ordered by city ascending and salary descending.
 mysql> SELECT * FROM Employee
     -> ORDER BY city ASC, salary DESC;
 +--------+----------+------------+--------+-----------+
