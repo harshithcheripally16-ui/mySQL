@@ -1,3 +1,38 @@
+------------------------------------------------------------------------------------------------------------------
+TASK - 1
+
+Questions:
+1. Insert a new employee record into the Employee table.
+2. Insert an employee with emp_id = 111, emp_name = 'Teja', department = 'IT', salary = 55000, city = 'Hyderabad'.
+3. Insert multiple employee records using a single query.
+4. Insert a record by specifying column names explicitly.
+5. Insert an employee record with only emp_id, emp_name, and department.
+6. Update the salary of employee with emp_id = 101.
+7. Update the city of employee 'Ravi' to Bangalore.
+8. Update the department of employee with emp_id = 105 to Finance.
+9. Update the salary of all employees in the IT department.
+10. Update the city to Hyderabad for all HR employees.
+11. Delete the employee whose emp_id = 103.
+12. Delete all employees belonging to the HR department.
+13. Delete employees whose salary is less than 40000.
+14. Delete employees from Hyderabad.
+15. Delete employees working in the Finance department.
+16. Display all employees whose salary is greater than 50000.
+17. Display employees working in the IT department.
+18. Display employees from Hyderabad.
+19. Display employees whose salary is less than 60000.
+20. Display details of employee with emp_id = 105.
+21. Display employees whose department is Finance.
+22. Display employees whose city is Bangalore.
+23. Display employees whose salary is greater than 50000 and city is Hyderabad.
+24. Display employees whose department is IT and salary is greater than 60000.
+25. Display employees whose city is Mumbai and department is Finance.
+26. Display emp_name as Employee_Name.
+27. Display salary as Employee_Salary.
+28. Display department as Dept_Name and city as Employee_City.
+29. Display all employees ordered by salary in descending order.
+30. Display all employees ordered by city ascending and salary descending.
+------------------------------------------------------------------------------------------------------------------
 
 mysql> CREATE TABLE Employee (
     ->     emp_id INT PRIMARY KEY,

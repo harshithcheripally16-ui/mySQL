@@ -1,3 +1,59 @@
+------------------------------------------------------------------------------------------------------------------
+TASK - 2
+
+Products Table
+CREATE TABLE Products (
+   product_id INT PRIMARY KEY,
+   product_name VARCHAR(50),
+   category VARCHAR(30),
+   brand VARCHAR(30),
+   price DECIMAL(10,2),
+   stock INT,
+   discount DECIMAL(5,2),
+   supplier VARCHAR(50)
+);
+
+INSERT INTO Products VALUES
+(101, 'Laptop', 'Electronics', 'Dell', 55000, 10, 5.00, 'Tech World'),
+(102, 'Mouse', 'Electronics', 'Logitech', 800, 50, NULL, 'Tech World'),
+(103, 'Keyboard', 'Electronics', 'HP', 1200, 30, 10.00, 'ABC Suppliers'),
+(104, 'Mobile', 'Electronics', 'Samsung', 25000, 15, NULL, 'XYZ Traders'),
+(105, 'Tablet', 'Electronics', 'Apple', 45000, 8, 7.50, 'XYZ Traders'),
+(106, 'Chair', 'Furniture', 'IKEA', 3500, 20, NULL, 'Home Needs'),
+(107, 'Table', 'Furniture', 'IKEA', 7000, 12, 5.00, 'Home Needs'),
+(108, 'Fan', 'Appliances', 'Bajaj', 2500, 25, NULL, 'Cooling Solutions'),
+(109, 'AC', 'Appliances', 'LG', 35000, 5, 12.00, 'Cooling Solutions'),
+(110, 'Refrigerator', 'Appliances', 'Samsung', 28000, 7, NULL, 'XYZ Traders');
+
+DISTINCT - 5 Questions
+    1. Display all unique categories from the Products table.
+    2. Display all unique brands.
+    3. Display all unique suppliers.
+    4. Display unique combinations of category and brand.
+    5. Count the total number of distinct brands.
+
+IFNULL - 5 Questions
+    1. Display product names and replace NULL discounts with 0.
+    2. Display supplier names and replace NULL values with 'Unknown Supplier'.
+    3. Calculate the discounted price by replacing NULL discounts with 0.
+    4. Display all product details with NULL discount values replaced by 0.
+    5. Find products where IFNULL(discount,0) is greater than 5.
+
+OR Operator - 5 Questions
+    1. Find products belonging to Electronics or Furniture categories.
+    2. Find products manufactured by Samsung or LG.
+    3. Find products priced above 30,000 or having stock less than 10.
+    4. Find products supplied by Tech World or XYZ Traders.
+    5. Find products with discount greater than 10 or stock less than 10.
+
+NOT Operator - 5 Questions
+    1. Find products that are not Electronics.
+    2. Find products not supplied by XYZ Traders.
+    3. Find products not belonging to Samsung brand.
+    4. Find products whose stock is not less than 10.
+    5. Find products whose price is not greater than 30,000.
+------------------------------------------------------------------------------------------------------------------
+
 mysql> CREATE TABLE Products (
     ->    product_id INT PRIMARY KEY,
     ->    product_name VARCHAR(50),
