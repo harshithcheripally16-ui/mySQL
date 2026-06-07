@@ -1,34 +1,27 @@
 # Task 1
 
-
 ## Table Setup
 
-
 ```sql
-mysql> CREATE TABLE Employee (
-    ->     emp_id INT PRIMARY KEY,
-    ->     emp_name VARCHAR(50),
-    ->     department VARCHAR(30),
-    ->     salary INT,
-    ->     city VARCHAR(30)
-    -> );
-Query OK, 0 rows affected (0.03 sec)
+CREATE TABLE Employee (
+    emp_id INT PRIMARY KEY,
+    emp_name VARCHAR(50),
+    department VARCHAR(30),
+    salary INT,
+    city VARCHAR(30)
+);
 
-mysql>
-mysql> INSERT INTO Employee VALUES
-    -> (101, 'Ravi', 'IT', 50000, 'Hyderabad'),
-    -> (102, 'Suresh', 'HR', 40000, 'Chennai'),
-    -> (103, 'Priya', 'IT', 60000, 'Bangalore'),
-    -> (104, 'Anjali', 'Finance', 55000, 'Mumbai'),
-    -> (105, 'Kiran', 'HR', 45000, 'Hyderabad'),
-    -> (106, 'Rahul', 'IT', 70000, 'Pune'),
-    -> (107, 'Sneha', 'Finance', 65000, 'Chennai'),
-    -> (108, 'Arjun', 'IT', 48000, 'Hyderabad'),
-    -> (109, 'Meena', 'HR', 52000, 'Bangalore'),
-    -> (110, 'Vijay', 'Finance', 75000, 'Mumbai');
-Query OK, 10 rows affected (0.01 sec)
-Records: 10  Duplicates: 0  Warnings: 0
-
+INSERT INTO Employee VALUES
+(101, 'Ravi', 'IT', 50000, 'Hyderabad'),
+(102, 'Suresh', 'HR', 40000, 'Chennai'),
+(103, 'Priya', 'IT', 60000, 'Bangalore'),
+(104, 'Anjali', 'Finance', 55000, 'Mumbai'),
+(105, 'Kiran', 'HR', 45000, 'Hyderabad'),
+(106, 'Rahul', 'IT', 70000, 'Pune'),
+(107, 'Sneha', 'Finance', 65000, 'Chennai'),
+(108, 'Arjun', 'IT', 48000, 'Hyderabad'),
+(109, 'Meena', 'HR', 52000, 'Bangalore'),
+(110, 'Vijay', 'Finance', 75000, 'Mumbai');
 ```
 
 ## Question 1
@@ -36,9 +29,7 @@ Records: 10  Duplicates: 0  Warnings: 0
 Insert a new employee record into the Employee table.
 
 ```sql
-mysql> INSERT INTO Employee VALUES(111, 'Harshith', 'IT', 200000, 'Hyderabad');
-Query OK, 1 row affected (0.01 sec)
-
+INSERT INTO Employee VALUES(111, 'Harshith', 'IT', 200000, 'Hyderabad');
 ```
 
 ## Question 2
@@ -46,9 +37,7 @@ Query OK, 1 row affected (0.01 sec)
 Insert an employee with emp_id = 112, emp_name = 'Teja', department = 'IT', salary = 55000, city = 'Hyderabad'.
 
 ```sql
-mysql> INSERT INTO Employee VALUES(112, 'Teja', 'IT', 55000, 'Hyderabad');
-Query OK, 1 row affected (0.01 sec)
-
+INSERT INTO Employee VALUES(112, 'Teja', 'IT', 55000, 'Hyderabad');
 ```
 
 ## Question 3
@@ -56,20 +45,12 @@ Query OK, 1 row affected (0.01 sec)
 Insert multiple employee records using a single query.
 
 ```sql
-mysql> INSERT INTO Employee VALUES
-    -> (113, 'Ajay', 'HR', '75000', 'Chennai'),
-    -> (114, 'Jay', 'IT', '60000', 'Pune'),
-    -> (115, 'Ayaz', 'IT', '150000', 'Bangalore'),
-    -> ;
-ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 4
-mysql> INSERT INTO Employee VALUES
-    -> (113, 'Ajay', 'HR', '75000', 'Chennai'),
-    -> (114, 'Jay', 'IT', '60000', 'Pune'),
-    -> (115, 'Ayaz', 'IT', '150000', 'Bangalore');
-Query OK, 3 rows affected (0.01 sec)
-Records: 3  Duplicates: 0  Warnings: 0
+INSERT INTO Employee VALUES
+(113, 'Ajay', 'HR', '75000', 'Chennai'),
+(114, 'Jay', 'IT', '60000', 'Pune'),
+(115, 'Ayaz', 'IT', '150000', 'Bangalore');
 
-mysql> SELECT * FROM Employee;
+SELECT * FROM Employee;
 +--------+----------+------------+--------+-----------+
 | emp_id | emp_name | department | salary | city      |
 +--------+----------+------------+--------+-----------+
@@ -89,8 +70,6 @@ mysql> SELECT * FROM Employee;
 |    114 | Jay      | IT         |  60000 | Pune      |
 |    115 | Ayaz     | IT         | 150000 | Bangalore |
 +--------+----------+------------+--------+-----------+
-15 rows in set (0.01 sec)
-
 ```
 
 ## Question 4
@@ -98,9 +77,7 @@ mysql> SELECT * FROM Employee;
 Insert a record by specifying column names explicitly.
 
 ```sql
-mysql> INSERT INTO Employee(emp_id, emp_name, department, salary, city)  VALUES(116, 'Tarun', 'Finance', 45000, 'Mumbai');
-Query OK, 1 row affected (0.01 sec)
-
+INSERT INTO Employee(emp_id, emp_name, department, salary, city) VALUES(116, 'Tarun', 'Finance', 45000, 'Mumbai');
 ```
 
 ## Question 5
@@ -108,9 +85,7 @@ Query OK, 1 row affected (0.01 sec)
 Insert an employee record with only emp_id, emp_name, and department.
 
 ```sql
-mysql> INSERT INTO Employee(emp_id, emp_name, department)  VALUES(117, 'Karan', 'IT');
-Query OK, 1 row affected (0.01 sec)
-
+INSERT INTO Employee(emp_id, emp_name, department) VALUES(117, 'Karan', 'IT');
 ```
 
 ## Question 6
@@ -118,16 +93,9 @@ Query OK, 1 row affected (0.01 sec)
 Update the salary of employee with emp_id = 101.
 
 ```sql
-mysql> UPDATE Employee
-    -> SET salary=80000
-    -> WHERE id = 101;
-ERROR 1054 (42S22): Unknown column 'id' in 'where clause'
-mysql> UPDATE Employee
-    -> SET salary=80000
-    -> WHERE emp_id = 101;
-Query OK, 1 row affected (0.01 sec)
-Rows matched: 1  Changed: 1  Warnings: 0
-
+UPDATE Employee
+SET salary=80000
+WHERE emp_id = 101;
 ```
 
 ## Question 7
@@ -135,12 +103,9 @@ Rows matched: 1  Changed: 1  Warnings: 0
 Update the city of employee 'Ravi' to Bangalore.
 
 ```sql
-mysql> UPDATE Employee
-    -> SET city = 'Bangalore'
-    -> WHERE emp_id = 101;
-Query OK, 1 row affected (0.01 sec)
-Rows matched: 1  Changed: 1  Warnings: 0
-
+UPDATE Employee
+SET city = 'Bangalore'
+WHERE emp_id = 101;
 ```
 
 ## Question 8
@@ -148,12 +113,9 @@ Rows matched: 1  Changed: 1  Warnings: 0
 Update the department of employee with emp_id = 105 to Finance.
 
 ```sql
-mysql> UPDATE Employee
-    -> SET department = 'Finance'
-    -> WHERE emp_id = 105;
-Query OK, 1 row affected (0.01 sec)
-Rows matched: 1  Changed: 1  Warnings: 0
-
+UPDATE Employee
+SET department = 'Finance'
+WHERE emp_id = 105;
 ```
 
 ## Question 9
@@ -161,12 +123,9 @@ Rows matched: 1  Changed: 1  Warnings: 0
 Update the salary of all employees in the IT department.
 
 ```sql
-mysql> UPDATE Employee
-    -> SET salary = salary + 500
-    -> WHERE department = 'IT';
-Query OK, 8 rows affected (0.02 sec)
-Rows matched: 9  Changed: 8  Warnings: 0
-
+UPDATE Employee
+SET salary = salary + 500
+WHERE department = 'IT';
 ```
 
 ## Question 10
@@ -174,12 +133,9 @@ Rows matched: 9  Changed: 8  Warnings: 0
 Update the city to Hyderabad for all HR employees.
 
 ```sql
-mysql> UPDATE Employee
-    -> SET city = 'Hyderabad'
-    -> WHERE department = 'HR';
-Query OK, 3 rows affected (0.01 sec)
-Rows matched: 3  Changed: 3  Warnings: 0
-
+UPDATE Employee
+SET city = 'Hyderabad'
+WHERE department = 'HR';
 ```
 
 ## Question 11
@@ -187,10 +143,8 @@ Rows matched: 3  Changed: 3  Warnings: 0
 Delete the employee whose emp_id = 103.
 
 ```sql
-mysql> DELETE FROM Employee
-    -> WHERE emp_id = 103;
-Query OK, 1 row affected (0.01 sec)
-
+DELETE FROM Employee
+WHERE emp_id = 103;
 ```
 
 ## Question 12
@@ -198,10 +152,8 @@ Query OK, 1 row affected (0.01 sec)
 Delete all employees belonging to the HR department.
 
 ```sql
-mysql> DELETE FROM Employee
-    -> WHERE department = 'HR';
-Query OK, 3 rows affected (0.01 sec)
-
+DELETE FROM Employee
+WHERE department = 'HR';
 ```
 
 ## Question 13
@@ -209,10 +161,8 @@ Query OK, 3 rows affected (0.01 sec)
 Delete employees whose salary is less than 40000.
 
 ```sql
-mysql> DELETE FROM Employee
-    -> WHERE salary < 40000;
-Query OK, 0 rows affected (0.00 sec)
-
+DELETE FROM Employee
+WHERE salary < 40000;
 ```
 
 ## Question 14
@@ -220,10 +170,8 @@ Query OK, 0 rows affected (0.00 sec)
 Delete employees from Hyderabad.
 
 ```sql
-mysql> DELETE FROM Employee
-    -> WHERE city = 'Hyderabad';
-Query OK, 4 rows affected (0.01 sec)
-
+DELETE FROM Employee
+WHERE city = 'Hyderabad';
 ```
 
 ## Question 15
@@ -231,11 +179,10 @@ Query OK, 4 rows affected (0.01 sec)
 Delete employees working in the Finance department.
 
 ```sql
-mysql> DELETE FROM Employee
-    -> WHERE department = 'Finance';
-Query OK, 4 rows affected (0.01 sec)
+DELETE FROM Employee
+WHERE department = 'Finance';
 
-mysql> SELECT * FROM Employee;
+SELECT * FROM Employee;
 +--------+----------+------------+--------+-----------+
 | emp_id | emp_name | department | salary | city      |
 +--------+----------+------------+--------+-----------+
@@ -245,8 +192,6 @@ mysql> SELECT * FROM Employee;
 |    115 | Ayaz     | IT         | 150500 | Bangalore |
 |    117 | Karan    | IT         |   NULL | NULL      |
 +--------+----------+------------+--------+-----------+
-5 rows in set (0.01 sec)
-
 ```
 
 ## Question 16
@@ -254,8 +199,8 @@ mysql> SELECT * FROM Employee;
 Display all employees whose salary is greater than 50000.
 
 ```sql
-mysql> SELECT * FROM Employee
-    -> WHERE salary > 50000;
+SELECT * FROM Employee
+WHERE salary > 50000;
 +--------+----------+------------+--------+-----------+
 | emp_id | emp_name | department | salary | city      |
 +--------+----------+------------+--------+-----------+
@@ -264,8 +209,6 @@ mysql> SELECT * FROM Employee
 |    114 | Jay      | IT         |  60500 | Pune      |
 |    115 | Ayaz     | IT         | 150500 | Bangalore |
 +--------+----------+------------+--------+-----------+
-4 rows in set (0.00 sec)
-
 ```
 
 ## Question 17
@@ -273,8 +216,8 @@ mysql> SELECT * FROM Employee
 Display employees working in the IT department.
 
 ```sql
-mysql> SELECT * FROM Employee
-    -> WHERE department = 'IT';
+SELECT * FROM Employee
+WHERE department = 'IT';
 +--------+----------+------------+--------+-----------+
 | emp_id | emp_name | department | salary | city      |
 +--------+----------+------------+--------+-----------+
@@ -284,8 +227,6 @@ mysql> SELECT * FROM Employee
 |    115 | Ayaz     | IT         | 150500 | Bangalore |
 |    117 | Karan    | IT         |   NULL | NULL      |
 +--------+----------+------------+--------+-----------+
-5 rows in set (0.00 sec)
-
 ```
 
 ## Question 18
@@ -293,10 +234,9 @@ mysql> SELECT * FROM Employee
 Display employees from Hyderabad.
 
 ```sql
-mysql> SELECT * FROM Employee
-    -> WHERE city = 'Hyderabad';
-Empty set (0.00 sec)
-
+SELECT * FROM Employee
+WHERE city = 'Hyderabad';
+Empty set
 ```
 
 ## Question 19
@@ -304,10 +244,9 @@ Empty set (0.00 sec)
 Display employees whose salary is less than 60000.
 
 ```sql
-mysql> SELECT * FROM Employee
-    -> WHERE salary < 60000;
-Empty set (0.00 sec)
-
+SELECT * FROM Employee
+WHERE salary < 60000;
+Empty set
 ```
 
 ## Question 20
@@ -315,10 +254,9 @@ Empty set (0.00 sec)
 Display details of employee with emp_id = 105.
 
 ```sql
-mysql> SELECT * FROM Employee
-    -> WHERE emp_id = 105;
-Empty set (0.01 sec)
-
+SELECT * FROM Employee
+WHERE emp_id = 105;
+Empty set
 ```
 
 ## Question 21
@@ -326,10 +264,9 @@ Empty set (0.01 sec)
 Display employees whose department is Finance.
 
 ```sql
-mysql> SELECT * FROM Employee
-    -> WHERE department = 'Finance';
-Empty set (0.00 sec)
-
+SELECT * FROM Employee
+WHERE department = 'Finance';
+Empty set
 ```
 
 ## Question 22
@@ -337,16 +274,14 @@ Empty set (0.00 sec)
 Display employees whose city is Bangalore.
 
 ```sql
-mysql> SELECT * FROM Employee
-    -> WHERE city = 'Bangalore';
+SELECT * FROM Employee
+WHERE city = 'Bangalore';
 +--------+----------+------------+--------+-----------+
 | emp_id | emp_name | department | salary | city      |
 +--------+----------+------------+--------+-----------+
 |    101 | Ravi     | IT         |  80500 | Bangalore |
 |    115 | Ayaz     | IT         | 150500 | Bangalore |
 +--------+----------+------------+--------+-----------+
-2 rows in set (0.00 sec)
-
 ```
 
 ## Question 23
@@ -354,11 +289,10 @@ mysql> SELECT * FROM Employee
 Display employees whose salary is greater than 50000 and city is Hyderabad.
 
 ```sql
-mysql> SELECT * FROM Employee
-    -> WHERE salary > 50000
-    -> AND city = 'Hyderabad';
-Empty set (0.00 sec)
-
+SELECT * FROM Employee
+WHERE salary > 50000
+AND city = 'Hyderabad';
+Empty set
 ```
 
 ## Question 24
@@ -366,9 +300,9 @@ Empty set (0.00 sec)
 Display employees whose department is IT and salary is greater than 60000.
 
 ```sql
-mysql> SELECT * FROM Employee
-    -> WHERE department = 'IT'
-    -> AND salary > 60000;
+SELECT * FROM Employee
+WHERE department = 'IT'
+AND salary > 60000;
 +--------+----------+------------+--------+-----------+
 | emp_id | emp_name | department | salary | city      |
 +--------+----------+------------+--------+-----------+
@@ -377,8 +311,6 @@ mysql> SELECT * FROM Employee
 |    114 | Jay      | IT         |  60500 | Pune      |
 |    115 | Ayaz     | IT         | 150500 | Bangalore |
 +--------+----------+------------+--------+-----------+
-4 rows in set (0.00 sec)
-
 ```
 
 ## Question 25
@@ -386,11 +318,10 @@ mysql> SELECT * FROM Employee
 Display employees whose city is Mumbai and department is Finance.
 
 ```sql
-mysql> SELECT * FROM Employee
-    -> WHERE city = 'Mumbai'
-    -> AND department = 'Finance';
-Empty set (0.00 sec)
-
+SELECT * FROM Employee
+WHERE city = 'Mumbai'
+AND department = 'Finance';
+Empty set
 ```
 
 ## Question 26
@@ -398,8 +329,8 @@ Empty set (0.00 sec)
 Display emp_name as Employee_Name.
 
 ```sql
-mysql> SELECT emp_name AS Employee_Name
-    -> FROM Employee;
+SELECT emp_name AS Employee_Name
+FROM Employee;
 +---------------+
 | Employee_Name |
 +---------------+
@@ -409,8 +340,6 @@ mysql> SELECT emp_name AS Employee_Name
 | Ayaz          |
 | Karan         |
 +---------------+
-5 rows in set (0.00 sec)
-
 ```
 
 ## Question 27
@@ -418,8 +347,8 @@ mysql> SELECT emp_name AS Employee_Name
 Display salary as Employee_Salary.
 
 ```sql
-mysql> SELECT salary AS Employee_Salary
-    -> FROM Employee;
+SELECT salary AS Employee_Salary
+FROM Employee;
 +-----------------+
 | Employee_Salary |
 +-----------------+
@@ -429,8 +358,6 @@ mysql> SELECT salary AS Employee_Salary
 |          150500 |
 |            NULL |
 +-----------------+
-5 rows in set (0.00 sec)
-
 ```
 
 ## Question 28
@@ -438,9 +365,9 @@ mysql> SELECT salary AS Employee_Salary
 Display department as Dept_Name and city as Employee_City.
 
 ```sql
-mysql> SELECT department AS Dept_Name,
-    -> city AS Employee_City
-    -> FROM Employee;
+SELECT department AS Dept_Name,
+       city AS Employee_City
+FROM Employee;
 +-----------+---------------+
 | Dept_Name | Employee_City |
 +-----------+---------------+
@@ -450,8 +377,6 @@ mysql> SELECT department AS Dept_Name,
 | IT        | Bangalore     |
 | IT        | NULL          |
 +-----------+---------------+
-5 rows in set (0.00 sec)
-
 ```
 
 ## Question 29
@@ -459,8 +384,8 @@ mysql> SELECT department AS Dept_Name,
 Display all employees ordered by salary in descending order.
 
 ```sql
-mysql> SELECT * FROM Employee
-    -> ORDER BY salary DESC;
+SELECT * FROM Employee
+ORDER BY salary DESC;
 +--------+----------+------------+--------+-----------+
 | emp_id | emp_name | department | salary | city      |
 +--------+----------+------------+--------+-----------+
@@ -470,8 +395,6 @@ mysql> SELECT * FROM Employee
 |    114 | Jay      | IT         |  60500 | Pune      |
 |    117 | Karan    | IT         |   NULL | NULL      |
 +--------+----------+------------+--------+-----------+
-5 rows in set (0.01 sec)
-
 ```
 
 ## Question 30
@@ -479,8 +402,8 @@ mysql> SELECT * FROM Employee
 Display all employees ordered by city ascending and salary descending.
 
 ```sql
-mysql> SELECT * FROM Employee
-    -> ORDER BY city ASC, salary DESC;
+SELECT * FROM Employee
+ORDER BY city ASC, salary DESC;
 +--------+----------+------------+--------+-----------+
 | emp_id | emp_name | department | salary | city      |
 +--------+----------+------------+--------+-----------+
@@ -490,5 +413,4 @@ mysql> SELECT * FROM Employee
 |    106 | Rahul    | IT         |  70500 | Pune      |
 |    114 | Jay      | IT         |  60500 | Pune      |
 +--------+----------+------------+--------+-----------+
-5 rows in set (0.01 sec)
 ```

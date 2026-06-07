@@ -1,6 +1,5 @@
 # Task 2
 
-
 ## Table Setup
 
 ```sql
@@ -26,34 +25,6 @@ INSERT INTO Products VALUES
 (108, 'Fan', 'Appliances', 'Bajaj', 2500, 25, NULL, 'Cooling Solutions'),
 (109, 'AC', 'Appliances', 'LG', 35000, 5, 12.00, 'Cooling Solutions'),
 (110, 'Refrigerator', 'Appliances', 'Samsung', 28000, 7, NULL, 'XYZ Traders');
-
-mysql> CREATE TABLE Products (
-    ->    product_id INT PRIMARY KEY,
-    ->    product_name VARCHAR(50),
-    ->    category VARCHAR(30),
-    ->    brand VARCHAR(30),
-    ->    price DECIMAL(10,2),
-    ->    stock INT,
-    ->    discount DECIMAL(5,2),
-    ->    supplier VARCHAR(50)
-    -> );
-Query OK, 0 rows affected (0.05 sec)
-
-mysql>
-mysql> INSERT INTO Products VALUES
-    -> (101, 'Laptop', 'Electronics', 'Dell', 55000, 10, 5.00, 'Tech World'),
-    -> (102, 'Mouse', 'Electronics', 'Logitech', 800, 50, NULL, 'Tech World'),
-    -> (103, 'Keyboard', 'Electronics', 'HP', 1200, 30, 10.00, 'ABC Suppliers'),
-    -> (104, 'Mobile', 'Electronics', 'Samsung', 25000, 15, NULL, 'XYZ Traders'),
-    -> (105, 'Tablet', 'Electronics', 'Apple', 45000, 8, 7.50, 'XYZ Traders'),
-    -> (106, 'Chair', 'Furniture', 'IKEA', 3500, 20, NULL, 'Home Needs'),
-    -> (107, 'Table', 'Furniture', 'IKEA', 7000, 12, 5.00, 'Home Needs'),
-    -> (108, 'Fan', 'Appliances', 'Bajaj', 2500, 25, NULL, 'Cooling Solutions'),
-    -> (109, 'AC', 'Appliances', 'LG', 35000, 5, 12.00, 'Cooling Solutions'),
-    -> (110, 'Refrigerator', 'Appliances', 'Samsung', 28000, 7, NULL, 'XYZ Traders');
-Query OK, 10 rows affected (0.01 sec)
-Records: 10  Duplicates: 0  Warnings: 0
-
 ```
 
 ## Question 1
@@ -61,8 +32,8 @@ Records: 10  Duplicates: 0  Warnings: 0
 Display all unique categories from the Products table.
 
 ```sql
-mysql> SELECT DISTINCT category
-    -> FROM Products;
+SELECT DISTINCT category
+FROM Products;
 +-------------+
 | category    |
 +-------------+
@@ -70,8 +41,6 @@ mysql> SELECT DISTINCT category
 | Furniture   |
 | Appliances  |
 +-------------+
-3 rows in set (0.01 sec)
-
 ```
 
 ## Question 2
@@ -79,8 +48,8 @@ mysql> SELECT DISTINCT category
 Display all unique brands.
 
 ```sql
-mysql> SELECT DISTINCT brand
-    -> FROM Products;
+SELECT DISTINCT brand
+FROM Products;
 +----------+
 | brand    |
 +----------+
@@ -93,8 +62,6 @@ mysql> SELECT DISTINCT brand
 | Bajaj    |
 | LG       |
 +----------+
-8 rows in set (0.00 sec)
-
 ```
 
 ## Question 3
@@ -102,8 +69,8 @@ mysql> SELECT DISTINCT brand
 Display all unique suppliers.
 
 ```sql
-mysql> SELECT DISTINCT supplier
-    -> FROM Products;
+SELECT DISTINCT supplier
+FROM Products;
 +-------------------+
 | supplier          |
 +-------------------+
@@ -113,8 +80,6 @@ mysql> SELECT DISTINCT supplier
 | Home Needs        |
 | Cooling Solutions |
 +-------------------+
-5 rows in set (0.00 sec)
-
 ```
 
 ## Question 4
@@ -122,8 +87,8 @@ mysql> SELECT DISTINCT supplier
 Display unique combinations of category and brand.
 
 ```sql
-mysql> SELECT DISTINCT category, brand
-    -> FROM Products;
+SELECT DISTINCT category, brand
+FROM Products;
 +-------------+----------+
 | category    | brand    |
 +-------------+----------+
@@ -137,8 +102,6 @@ mysql> SELECT DISTINCT category, brand
 | Appliances  | LG       |
 | Appliances  | Samsung  |
 +-------------+----------+
-9 rows in set (0.00 sec)
-
 ```
 
 ## Question 5
@@ -146,15 +109,13 @@ mysql> SELECT DISTINCT category, brand
 Count the total number of distinct brands.
 
 ```sql
-mysql> SELECT COUNT(DISTINCT brand) AS Total_Brands
-    -> FROM Products;
+SELECT COUNT(DISTINCT brand) AS Total_Brands
+FROM Products;
 +--------------+
 | Total_Brands |
 +--------------+
 |            8 |
 +--------------+
-1 row in set (0.01 sec)
-
 ```
 
 ## Question 6
@@ -162,9 +123,9 @@ mysql> SELECT COUNT(DISTINCT brand) AS Total_Brands
 Display product names and replace NULL discounts with 0.
 
 ```sql
-mysql> SELECT product_name,
-    -> IFNULL(discount, 0) AS Discount
-    -> FROM Products;
+SELECT product_name,
+       IFNULL(discount, 0) AS Discount
+FROM Products;
 +--------------+----------+
 | product_name | Discount |
 +--------------+----------+
@@ -179,8 +140,6 @@ mysql> SELECT product_name,
 | AC           |    12.00 |
 | Refrigerator |     0.00 |
 +--------------+----------+
-10 rows in set (0.01 sec)
-
 ```
 
 ## Question 7
@@ -188,8 +147,8 @@ mysql> SELECT product_name,
 Display supplier names and replace NULL values with 'Unknown Supplier'.
 
 ```sql
-mysql> SELECT IFNULL(supplier, 'Unknown Supplier') AS Supplier
-    -> FROM Products;
+SELECT IFNULL(supplier, 'Unknown Supplier') AS Supplier
+FROM Products;
 +-------------------+
 | Supplier          |
 +-------------------+
@@ -204,8 +163,6 @@ mysql> SELECT IFNULL(supplier, 'Unknown Supplier') AS Supplier
 | Cooling Solutions |
 | XYZ Traders       |
 +-------------------+
-10 rows in set (0.00 sec)
-
 ```
 
 ## Question 8
@@ -213,11 +170,11 @@ mysql> SELECT IFNULL(supplier, 'Unknown Supplier') AS Supplier
 Calculate the discounted price by replacing NULL discounts with 0.
 
 ```sql
-mysql> SELECT product_name,
-    ->        price,
-    ->        IFNULL(discount,0) AS Discount,
-    ->        price - (price * IFNULL(discount,0)/100) AS Discounted_Price
-    -> FROM Products;
+SELECT product_name,
+       price,
+       IFNULL(discount, 0) AS Discount,
+       price - (price * IFNULL(discount, 0) / 100) AS Discounted_Price
+FROM Products;
 +--------------+----------+----------+------------------+
 | product_name | price    | Discount | Discounted_Price |
 +--------------+----------+----------+------------------+
@@ -232,8 +189,6 @@ mysql> SELECT product_name,
 | AC           | 35000.00 |    12.00 |   30800.00000000 |
 | Refrigerator | 28000.00 |     0.00 |   28000.00000000 |
 +--------------+----------+----------+------------------+
-10 rows in set (0.00 sec)
-
 ```
 
 ## Question 9
@@ -241,15 +196,15 @@ mysql> SELECT product_name,
 Display all product details with NULL discount values replaced by 0.
 
 ```sql
-mysql> SELECT product_id,
-    ->        product_name,
-    ->        category,
-    ->        brand,
-    ->        price,
-    ->        stock,
-    ->        IFNULL(discount,0) AS discount,
-    ->        supplier
-    -> FROM Products;
+SELECT product_id,
+       product_name,
+       category,
+       brand,
+       price,
+       stock,
+       IFNULL(discount, 0) AS discount,
+       supplier
+FROM Products;
 +------------+--------------+-------------+----------+----------+-------+----------+-------------------+
 | product_id | product_name | category    | brand    | price    | stock | discount | supplier          |
 +------------+--------------+-------------+----------+----------+-------+----------+-------------------+
@@ -264,8 +219,6 @@ mysql> SELECT product_id,
 |        109 | AC           | Appliances  | LG       | 35000.00 |     5 |    12.00 | Cooling Solutions |
 |        110 | Refrigerator | Appliances  | Samsung  | 28000.00 |     7 |     0.00 | XYZ Traders       |
 +------------+--------------+-------------+----------+----------+-------+----------+-------------------+
-10 rows in set (0.00 sec)
-
 ```
 
 ## Question 10
@@ -273,9 +226,9 @@ mysql> SELECT product_id,
 Find products where IFNULL(discount,0) is greater than 5.
 
 ```sql
-mysql> SELECT *
-    -> FROM Products
-    -> WHERE IFNULL(discount,0) > 5;
+SELECT *
+FROM Products
+WHERE IFNULL(discount, 0) > 5;
 +------------+--------------+-------------+-------+----------+-------+----------+-------------------+
 | product_id | product_name | category    | brand | price    | stock | discount | supplier          |
 +------------+--------------+-------------+-------+----------+-------+----------+-------------------+
@@ -283,8 +236,6 @@ mysql> SELECT *
 |        105 | Tablet       | Electronics | Apple | 45000.00 |     8 |     7.50 | XYZ Traders       |
 |        109 | AC           | Appliances  | LG    | 35000.00 |     5 |    12.00 | Cooling Solutions |
 +------------+--------------+-------------+-------+----------+-------+----------+-------------------+
-3 rows in set (0.00 sec)
-
 ```
 
 ## Question 11
@@ -292,10 +243,10 @@ mysql> SELECT *
 Find products belonging to Electronics or Furniture categories.
 
 ```sql
-mysql> SELECT *
-    -> FROM Products
-    -> WHERE category = 'Electronics'
-    ->    OR category = 'Furniture';
+SELECT *
+FROM Products
+WHERE category = 'Electronics'
+   OR category = 'Furniture';
 +------------+--------------+-------------+----------+----------+-------+----------+---------------+
 | product_id | product_name | category    | brand    | price    | stock | discount | supplier      |
 +------------+--------------+-------------+----------+----------+-------+----------+---------------+
@@ -307,8 +258,6 @@ mysql> SELECT *
 |        106 | Chair        | Furniture   | IKEA     |  3500.00 |    20 |     NULL | Home Needs    |
 |        107 | Table        | Furniture   | IKEA     |  7000.00 |    12 |     5.00 | Home Needs    |
 +------------+--------------+-------------+----------+----------+-------+----------+---------------+
-7 rows in set (0.00 sec)
-
 ```
 
 ## Question 12
@@ -316,10 +265,10 @@ mysql> SELECT *
 Find products manufactured by Samsung or LG.
 
 ```sql
-mysql> SELECT *
-    -> FROM Products
-    -> WHERE brand = 'Samsung'
-    ->    OR brand = 'LG';
+SELECT *
+FROM Products
+WHERE brand = 'Samsung'
+   OR brand = 'LG';
 +------------+--------------+-------------+---------+----------+-------+----------+-------------------+
 | product_id | product_name | category    | brand   | price    | stock | discount | supplier          |
 +------------+--------------+-------------+---------+----------+-------+----------+-------------------+
@@ -327,8 +276,6 @@ mysql> SELECT *
 |        109 | AC           | Appliances  | LG      | 35000.00 |     5 |    12.00 | Cooling Solutions |
 |        110 | Refrigerator | Appliances  | Samsung | 28000.00 |     7 |     NULL | XYZ Traders       |
 +------------+--------------+-------------+---------+----------+-------+----------+-------------------+
-3 rows in set (0.00 sec)
-
 ```
 
 ## Question 13
@@ -336,10 +283,10 @@ mysql> SELECT *
 Find products priced above 30,000 or having stock less than 10.
 
 ```sql
-mysql> SELECT *
-    -> FROM Products
-    -> WHERE price > 30000
-    ->    OR stock < 10;
+SELECT *
+FROM Products
+WHERE price > 30000
+   OR stock < 10;
 +------------+--------------+-------------+---------+----------+-------+----------+-------------------+
 | product_id | product_name | category    | brand   | price    | stock | discount | supplier          |
 +------------+--------------+-------------+---------+----------+-------+----------+-------------------+
@@ -348,8 +295,6 @@ mysql> SELECT *
 |        109 | AC           | Appliances  | LG      | 35000.00 |     5 |    12.00 | Cooling Solutions |
 |        110 | Refrigerator | Appliances  | Samsung | 28000.00 |     7 |     NULL | XYZ Traders       |
 +------------+--------------+-------------+---------+----------+-------+----------+-------------------+
-4 rows in set (0.00 sec)
-
 ```
 
 ## Question 14
@@ -357,10 +302,10 @@ mysql> SELECT *
 Find products supplied by Tech World or XYZ Traders.
 
 ```sql
-mysql> SELECT *
-    -> FROM Products
-    -> WHERE supplier = 'Tech World'
-    ->    OR supplier = 'XYZ Traders';
+SELECT *
+FROM Products
+WHERE supplier = 'Tech World'
+   OR supplier = 'XYZ Traders';
 +------------+--------------+-------------+----------+----------+-------+----------+-------------+
 | product_id | product_name | category    | brand    | price    | stock | discount | supplier    |
 +------------+--------------+-------------+----------+----------+-------+----------+-------------+
@@ -370,8 +315,6 @@ mysql> SELECT *
 |        105 | Tablet       | Electronics | Apple    | 45000.00 |     8 |     7.50 | XYZ Traders |
 |        110 | Refrigerator | Appliances  | Samsung  | 28000.00 |     7 |     NULL | XYZ Traders |
 +------------+--------------+-------------+----------+----------+-------+----------+-------------+
-5 rows in set (0.00 sec)
-
 ```
 
 ## Question 15
@@ -379,10 +322,10 @@ mysql> SELECT *
 Find products with discount greater than 10 or stock less than 10.
 
 ```sql
-mysql> SELECT *
-    -> FROM Products
-    -> WHERE discount > 10
-    ->    OR stock < 10;
+SELECT *
+FROM Products
+WHERE discount > 10
+   OR stock < 10;
 +------------+--------------+-------------+---------+----------+-------+----------+-------------------+
 | product_id | product_name | category    | brand   | price    | stock | discount | supplier          |
 +------------+--------------+-------------+---------+----------+-------+----------+-------------------+
@@ -390,8 +333,6 @@ mysql> SELECT *
 |        109 | AC           | Appliances  | LG      | 35000.00 |     5 |    12.00 | Cooling Solutions |
 |        110 | Refrigerator | Appliances  | Samsung | 28000.00 |     7 |     NULL | XYZ Traders       |
 +------------+--------------+-------------+---------+----------+-------+----------+-------------------+
-3 rows in set (0.00 sec)
-
 ```
 
 ## Question 16
@@ -399,9 +340,9 @@ mysql> SELECT *
 Find products that are not Electronics.
 
 ```sql
-mysql> SELECT *
-    -> FROM Products
-    -> WHERE NOT category = 'Electronics';
+SELECT *
+FROM Products
+WHERE NOT category = 'Electronics';
 +------------+--------------+------------+---------+----------+-------+----------+-------------------+
 | product_id | product_name | category   | brand   | price    | stock | discount | supplier          |
 +------------+--------------+------------+---------+----------+-------+----------+-------------------+
@@ -411,8 +352,6 @@ mysql> SELECT *
 |        109 | AC           | Appliances | LG      | 35000.00 |     5 |    12.00 | Cooling Solutions |
 |        110 | Refrigerator | Appliances | Samsung | 28000.00 |     7 |     NULL | XYZ Traders       |
 +------------+--------------+------------+---------+----------+-------+----------+-------------------+
-5 rows in set (0.01 sec)
-
 ```
 
 ## Question 17
@@ -420,9 +359,9 @@ mysql> SELECT *
 Find products not supplied by XYZ Traders.
 
 ```sql
-mysql> SELECT *
-    -> FROM Products
-    -> WHERE NOT supplier = 'XYZ Traders';
+SELECT *
+FROM Products
+WHERE NOT supplier = 'XYZ Traders';
 +------------+--------------+-------------+----------+----------+-------+----------+-------------------+
 | product_id | product_name | category    | brand    | price    | stock | discount | supplier          |
 +------------+--------------+-------------+----------+----------+-------+----------+-------------------+
@@ -434,8 +373,6 @@ mysql> SELECT *
 |        108 | Fan          | Appliances  | Bajaj    |  2500.00 |    25 |     NULL | Cooling Solutions |
 |        109 | AC           | Appliances  | LG       | 35000.00 |     5 |    12.00 | Cooling Solutions |
 +------------+--------------+-------------+----------+----------+-------+----------+-------------------+
-7 rows in set (0.00 sec)
-
 ```
 
 ## Question 18
@@ -443,9 +380,9 @@ mysql> SELECT *
 Find products not belonging to Samsung brand.
 
 ```sql
-mysql> SELECT *
-    -> FROM Products
-    -> WHERE NOT brand = 'Samsung';
+SELECT *
+FROM Products
+WHERE NOT brand = 'Samsung';
 +------------+--------------+-------------+----------+----------+-------+----------+-------------------+
 | product_id | product_name | category    | brand    | price    | stock | discount | supplier          |
 +------------+--------------+-------------+----------+----------+-------+----------+-------------------+
@@ -458,8 +395,6 @@ mysql> SELECT *
 |        108 | Fan          | Appliances  | Bajaj    |  2500.00 |    25 |     NULL | Cooling Solutions |
 |        109 | AC           | Appliances  | LG       | 35000.00 |     5 |    12.00 | Cooling Solutions |
 +------------+--------------+-------------+----------+----------+-------+----------+-------------------+
-8 rows in set (0.00 sec)
-
 ```
 
 ## Question 19
@@ -467,9 +402,9 @@ mysql> SELECT *
 Find products whose stock is not less than 10.
 
 ```sql
-mysql> SELECT *
-    -> FROM Products
-    -> WHERE NOT stock < 10;
+SELECT *
+FROM Products
+WHERE NOT stock < 10;
 +------------+--------------+-------------+----------+----------+-------+----------+-------------------+
 | product_id | product_name | category    | brand    | price    | stock | discount | supplier          |
 +------------+--------------+-------------+----------+----------+-------+----------+-------------------+
@@ -481,8 +416,6 @@ mysql> SELECT *
 |        107 | Table        | Furniture   | IKEA     |  7000.00 |    12 |     5.00 | Home Needs        |
 |        108 | Fan          | Appliances  | Bajaj    |  2500.00 |    25 |     NULL | Cooling Solutions |
 +------------+--------------+-------------+----------+----------+-------+----------+-------------------+
-7 rows in set (0.00 sec)
-
 ```
 
 ## Question 20
@@ -490,9 +423,9 @@ mysql> SELECT *
 Find products whose price is not greater than 30,000.
 
 ```sql
-mysql> SELECT *
-    -> FROM Products
-    -> WHERE NOT price > 30000;
+SELECT *
+FROM Products
+WHERE NOT price > 30000;
 +------------+--------------+-------------+----------+----------+-------+----------+-------------------+
 | product_id | product_name | category    | brand    | price    | stock | discount | supplier          |
 +------------+--------------+-------------+----------+----------+-------+----------+-------------------+
@@ -504,5 +437,4 @@ mysql> SELECT *
 |        108 | Fan          | Appliances  | Bajaj    |  2500.00 |    25 |     NULL | Cooling Solutions |
 |        110 | Refrigerator | Appliances  | Samsung  | 28000.00 |     7 |     NULL | XYZ Traders       |
 +------------+--------------+-------------+----------+----------+-------+----------+-------------------+
-7 rows in set (0.00 sec)
 ```
