@@ -37,7 +37,9 @@ SELECT * FROM Employee_Salary;
 Display employee names and salaries rounded to the nearest whole number.
 
 ```sql
-SELECT Emp_Name, ROUND(Salary) AS Rounded_Salary FROM Employee_Salary;
+SELECT Emp_Name,
+ROUND(Salary) AS Rounded_Salary
+FROM Employee_Salary;
 +----------+----------------+
 | Emp_Name | Rounded_Salary |
 +----------+----------------+
@@ -54,7 +56,9 @@ SELECT Emp_Name, ROUND(Salary) AS Rounded_Salary FROM Employee_Salary;
 Display employee names and bonuses rounded to 1 decimal place.
 
 ```sql
-SELECT Emp_Name, ROUND(Bonus, 1) AS Rounded_Bonus FROM Employee_Salary;
+SELECT Emp_Name,
+ROUND(Bonus, 1) AS Rounded_Bonus
+FROM Employee_Salary;
 +----------+---------------+
 | Emp_Name | Rounded_Bonus |
 +----------+---------------+
@@ -71,7 +75,9 @@ SELECT Emp_Name, ROUND(Bonus, 1) AS Rounded_Bonus FROM Employee_Salary;
 Calculate total earnings (Salary + Bonus) and round the result to 2 decimal places.
 
 ```sql
-SELECT Emp_Name, ROUND(Salary + Bonus, 2) AS Total_Earnings FROM Employee_Salary;
+SELECT Emp_Name,
+ROUND(Salary + Bonus, 2) AS Total_Earnings
+FROM Employee_Salary;
 +----------+----------------+
 | Emp_Name | Total_Earnings |
 +----------+----------------+
@@ -88,7 +94,9 @@ SELECT Emp_Name, ROUND(Salary + Bonus, 2) AS Total_Earnings FROM Employee_Salary
 Display salaries rounded to the nearest thousand.
 
 ```sql
-SELECT Emp_Name, ROUND(Salary, -3) AS Rounded_Salary FROM Employee_Salary;
+SELECT Emp_Name,
+ROUND(Salary, -3) AS Rounded_Salary
+FROM Employee_Salary;
 +----------+----------------+
 | Emp_Name | Rounded_Salary |
 +----------+----------------+
@@ -107,7 +115,9 @@ SELECT Emp_Name, ROUND(Salary, -3) AS Rounded_Salary FROM Employee_Salary;
 Display employee salaries rounded up to the nearest integer.
 
 ```sql
-SELECT Emp_Name, CEIL(Salary) AS Ceil_Salary FROM Employee_Salary;
+SELECT Emp_Name,
+CEIL(Salary) AS Ceil_Salary
+FROM Employee_Salary;
 +----------+-------------+
 | Emp_Name | Ceil_Salary |
 +----------+-------------+
@@ -124,7 +134,9 @@ SELECT Emp_Name, CEIL(Salary) AS Ceil_Salary FROM Employee_Salary;
 Find the ceiling value of each employee's bonus.
 
 ```sql
-SELECT Emp_Name, CEIL(Bonus) AS Ceil_Bonus FROM Employee_Salary;
+SELECT Emp_Name,
+CEIL(Bonus) AS Ceil_Bonus
+FROM Employee_Salary;
 +----------+------------+
 | Emp_Name | Ceil_Bonus |
 +----------+------------+
@@ -141,7 +153,9 @@ SELECT Emp_Name, CEIL(Bonus) AS Ceil_Bonus FROM Employee_Salary;
 Calculate total earnings (Salary + Bonus) and display the ceiling value.
 
 ```sql
-SELECT Emp_Name, CEIL(Salary + Bonus) AS Ceil_Earnings FROM Employee_Salary;
+SELECT Emp_Name,
+CEIL(Salary + Bonus) AS Ceil_Earnings
+FROM Employee_Salary;
 +----------+---------------+
 | Emp_Name | Ceil_Earnings |
 +----------+---------------+
@@ -158,7 +172,10 @@ SELECT Emp_Name, CEIL(Salary + Bonus) AS Ceil_Earnings FROM Employee_Salary;
 Find employees whose ceiling salary is greater than 18,000.
 
 ```sql
-SELECT Emp_Name, CEIL(Salary) AS Ceil_Salary FROM Employee_Salary WHERE CEIL(Salary) > 18000;
+SELECT Emp_Name,
+CEIL(Salary) AS Ceil_Salary
+FROM Employee_Salary
+WHERE CEIL(Salary) > 18000;
 +----------+-------------+
 | Emp_Name | Ceil_Salary |
 +----------+-------------+
@@ -175,7 +192,9 @@ SELECT Emp_Name, CEIL(Salary) AS Ceil_Salary FROM Employee_Salary WHERE CEIL(Sal
 Display employee salaries rounded down to the nearest integer.
 
 ```sql
-SELECT Emp_Name, FLOOR(Salary) AS Floor_Salary FROM Employee_Salary;
+SELECT Emp_Name,
+FLOOR(Salary) AS Floor_Salary
+FROM Employee_Salary;
 +----------+--------------+
 | Emp_Name | Floor_Salary |
 +----------+--------------+
@@ -192,7 +211,9 @@ SELECT Emp_Name, FLOOR(Salary) AS Floor_Salary FROM Employee_Salary;
 Find the floor value of total earnings (Salary + Bonus).
 
 ```sql
-SELECT Emp_Name, FLOOR(Salary + Bonus) AS Floor_Earnings FROM Employee_Salary;
+SELECT Emp_Name,
+FLOOR(Salary + Bonus) AS Floor_Earnings
+FROM Employee_Salary;
 +----------+----------------+
 | Emp_Name | Floor_Earnings |
 +----------+----------------+
@@ -209,7 +230,8 @@ SELECT Emp_Name, FLOOR(Salary + Bonus) AS Floor_Earnings FROM Employee_Salary;
 Show the floor value of average salary.
 
 ```sql
-SELECT FLOOR(AVG(Salary)) AS Floor_Average_Salary FROM Employee_Salary;
+SELECT FLOOR(AVG(Salary)) AS Floor_Average_Salary
+FROM Employee_Salary;
 +----------------------+
 | Floor_Average_Salary |
 +----------------------+
@@ -222,7 +244,10 @@ SELECT FLOOR(AVG(Salary)) AS Floor_Average_Salary FROM Employee_Salary;
 Find employees whose floor salary is greater than 15,000.
 
 ```sql
-SELECT Emp_Name, FLOOR(Salary) AS Floor_Salary FROM Employee_Salary WHERE FLOOR(Salary) > 15000;
+SELECT Emp_Name,
+FLOOR(Salary) AS Floor_Salary
+FROM Employee_Salary
+WHERE FLOOR(Salary) > 15000;
 +----------+--------------+
 | Emp_Name | Floor_Salary |
 +----------+--------------+
@@ -253,7 +278,9 @@ SELECT ABS(-5000) AS Absolute_Value;
 Display the absolute difference between Salary and Bonus for each employee.
 
 ```sql
-SELECT Emp_Name, ABS(Salary - Bonus) AS Absolute_Difference FROM Employee_Salary;
+SELECT Emp_Name,
+ABS(Salary - Bonus) AS Absolute_Difference
+FROM Employee_Salary;
 +----------+---------------------+
 | Emp_Name | Absolute_Difference |
 +----------+---------------------+
@@ -270,7 +297,8 @@ SELECT Emp_Name, ABS(Salary - Bonus) AS Absolute_Difference FROM Employee_Salary
 Calculate the absolute difference between the highest and lowest salary.
 
 ```sql
-SELECT ABS(MAX(Salary) - MIN(Salary)) AS Max_Min_Difference FROM Employee_Salary;
+SELECT ABS(MAX(Salary) - MIN(Salary)) AS Max_Min_Difference
+FROM Employee_Salary;
 +--------------------+
 | Max_Min_Difference |
 +--------------------+
@@ -283,7 +311,9 @@ SELECT ABS(MAX(Salary) - MIN(Salary)) AS Max_Min_Difference FROM Employee_Salary
 Find the absolute difference between Salary and 20,000.
 
 ```sql
-SELECT Emp_Name, ABS(Salary - 20000) AS Diff_From_20000 FROM Employee_Salary;
+SELECT Emp_Name,
+ABS(Salary - 20000) AS Diff_From_20000
+FROM Employee_Salary;
 +----------+--------------------+
 | Emp_Name | Diff_From_20000    |
 +----------+--------------------+
@@ -302,7 +332,13 @@ SELECT Emp_Name, ABS(Salary - 20000) AS Diff_From_20000 FROM Employee_Salary;
 Find whether Emp_ID is even or odd using MOD().
 
 ```sql
-SELECT Emp_ID, Emp_Name, CASE WHEN MOD(Emp_ID, 2) = 0 THEN 'Even' ELSE 'Odd' END AS ID_Type FROM Employee_Salary;
+SELECT Emp_ID,
+Emp_Name,
+CASE WHEN MOD(Emp_ID, 2) = 0
+THEN 'Even'
+ELSE 'Odd'
+END AS ID_Type
+FROM Employee_Salary;
 +--------+----------+---------+
 | Emp_ID | Emp_Name | ID_Type |
 +--------+----------+---------+
@@ -319,7 +355,9 @@ SELECT Emp_ID, Emp_Name, CASE WHEN MOD(Emp_ID, 2) = 0 THEN 'Even' ELSE 'Odd' END
 Display employees whose Experience leaves a remainder of 1 when divided by 2.
 
 ```sql
-SELECT Emp_Name, Experience FROM Employee_Salary WHERE MOD(Experience, 2) = 1;
+SELECT Emp_Name,
+Experience FROM Employee_Salary
+WHERE MOD(Experience, 2) = 1;
 +----------+------------+
 | Emp_Name | Experience |
 +----------+------------+
@@ -333,7 +371,10 @@ SELECT Emp_Name, Experience FROM Employee_Salary WHERE MOD(Experience, 2) = 1;
 Find the remainder when Salary is divided by 100.
 
 ```sql
-SELECT Emp_Name, Salary, MOD(Salary, 100) AS Remainder FROM Employee_Salary;
+SELECT Emp_Name,
+Salary,
+MOD(Salary, 100) AS Remainder
+FROM Employee_Salary;
 +----------+----------+-----------+
 | Emp_Name | Salary   | Remainder |
 +----------+----------+-----------+
@@ -350,7 +391,9 @@ SELECT Emp_Name, Salary, MOD(Salary, 100) AS Remainder FROM Employee_Salary;
 Find employees whose Emp_ID is divisible by 5.
 
 ```sql
-SELECT Emp_ID, Emp_Name FROM Employee_Salary WHERE MOD(Emp_ID, 5) = 0;
+SELECT Emp_ID,
+Emp_Name FROM Employee_Salary
+WHERE MOD(Emp_ID, 5) = 0;
 +--------+----------+
 | Emp_ID | Emp_Name |
 +--------+----------+
@@ -365,7 +408,10 @@ SELECT Emp_ID, Emp_Name FROM Employee_Salary WHERE MOD(Emp_ID, 5) = 0;
 Calculate Experience raised to the power of 2 for each employee.
 
 ```sql
-SELECT Emp_Name, Experience, POWER(Experience, 2) AS Exp_Power_2 FROM Employee_Salary;
+SELECT Emp_Name,
+Experience,
+POWER(Experience, 2) AS Exp_Power_2
+FROM Employee_Salary;
 +----------+------------+-------------+
 | Emp_Name | Experience | Exp_Power_2 |
 +----------+------------+-------------+
@@ -382,7 +428,10 @@ SELECT Emp_Name, Experience, POWER(Experience, 2) AS Exp_Power_2 FROM Employee_S
 Calculate Experience raised to the power of 3 for each employee.
 
 ```sql
-SELECT Emp_Name, Experience, POWER(Experience, 3) AS Exp_Power_3 FROM Employee_Salary;
+SELECT Emp_Name,
+Experience,
+POWER(Experience, 3) AS Exp_Power_3
+FROM Employee_Salary;
 +----------+------------+-------------+
 | Emp_Name | Experience | Exp_Power_3 |
 +----------+------------+-------------+
@@ -401,7 +450,10 @@ SELECT Emp_Name, Experience, POWER(Experience, 3) AS Exp_Power_3 FROM Employee_S
 Find the square root of each employee's Experience.
 
 ```sql
-SELECT Emp_Name, Experience, SQRT(Experience) AS Exp_Sqrt FROM Employee_Salary;
+SELECT Emp_Name,
+Experience,
+SQRT(Experience) AS Exp_Sqrt
+FROM Employee_Salary;
 +----------+------------+--------------------+
 | Emp_Name | Experience | Exp_Sqrt           |
 +----------+------------+--------------------+
@@ -420,7 +472,9 @@ SELECT Emp_Name, Experience, SQRT(Experience) AS Exp_Sqrt FROM Employee_Salary;
 Display Salary truncated to 1 decimal place.
 
 ```sql
-SELECT Emp_Name, TRUNCATE(Salary, 1) AS Truncated_Salary FROM Employee_Salary;
+SELECT Emp_Name,
+TRUNCATE(Salary, 1) AS Truncated_Salary
+FROM Employee_Salary;
 +----------+------------------+
 | Emp_Name | Truncated_Salary |
 +----------+------------------+
@@ -439,7 +493,12 @@ SELECT Emp_Name, TRUNCATE(Salary, 1) AS Truncated_Salary FROM Employee_Salary;
 Display Salary, CEIL(Salary), FLOOR(Salary), and ROUND(Salary) in the same result set.
 
 ```sql
-SELECT Emp_Name, Salary, CEIL(Salary) AS Ceil_Salary, FLOOR(Salary) AS Floor_Salary, ROUND(Salary) AS Rounded_Salary FROM Employee_Salary;
+SELECT Emp_Name,
+Salary,
+CEIL(Salary) AS Ceil_Salary,
+FLOOR(Salary) AS Floor_Salary,
+ROUND(Salary) AS Rounded_Salary
+FROM Employee_Salary;
 +----------+----------+-------------+--------------+----------------+
 | Emp_Name | Salary   | Ceil_Salary | Floor_Salary | Rounded_Salary |
 +----------+----------+-------------+--------------+----------------+
