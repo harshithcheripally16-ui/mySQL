@@ -1,0 +1,15 @@
+# Local configurations
+.DS_Store
+Thumbs.db
+
+# Backup or temporary files
+*.tmp
+*.bak
+*.swp
+
+# IDEs and editors
+.idea/
+.vscode/
+*.suo
+*.user
+*.workspace
