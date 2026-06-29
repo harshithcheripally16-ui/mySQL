@@ -1,5 +1,10 @@
--- Task 2: Calculate the total money earned through each payment mode (UPI, Card, Cash).
+-- =====================================================================
+-- Task 2: Payment Summary
+-- Purpose: Calculates the total revenue earned grouped by each payment mode (UPI, Cash, Card).
+-- =====================================================================
 
-SELECT payment_mode, SUM(total_amount) AS total_revenue
-FROM orders
-GROUP BY payment_mode;
+SELECT 
+    o.payment_mode, 
+    SUM(o.total_amount) AS total_revenue
+FROM orders o
+GROUP BY o.payment_mode;
