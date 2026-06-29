@@ -1,0 +1,45 @@
+erDiagram
+    customers ||--o{ orders : "places"
+    suppliers ||--o{ medicines : "supplies"
+    orders ||--|{ order_items : "contains"
+    medicines ||--o{ order_items : "ordered_in"
+
+    customers {
+        int customer_id PK
+        varchar name
+        varchar phone
+        varchar city
+    }
+
+    suppliers {
+        int supplier_id PK
+        varchar supplier_name
+        varchar contact_person
+        varchar phone
+    }
+
+    medicines {
+        int medicine_id PK
+        varchar name
+        varchar category
+        decimal price
+        int stock_quantity
+        date expiry_date
+        int supplier_id FK
+    }
+
+    orders {
+        int order_id PK
+        int customer_id FK
+        date order_date
+        decimal total_amount
+        enum payment_mode
+    }
+
+    order_items {
+        int item_id PK
+        int order_id FK
+        int medicine_id FK
+        int quantity
+        decimal subtotal
+    }
